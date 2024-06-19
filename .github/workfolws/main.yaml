@@ -1,0 +1,28 @@
+name: Build and Push Docker Image Into DockerHub
+
+on:
+  push:
+    branches: ['main']
+  pull_request:
+    branches: ['main']
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v2
+
+    - name: Login to Docker Hub
+      uses: docker/login-action@v2
+      with:
+        username: ${{secrets.DOCKERHUB_ID}}
+        password: ${{secrets.DOCKERHUB_PASSWORD}}
+
+    - name: Build And Push Docker image
+      uses: docker/build-push-action@v2
+      with:
+        context: . #  Here the . represents the root directory of the repository where the workflow is running. We can change this value if our Dockerfile is located in a different directory.
+        push: true
+        tags: ykum01/helloworld:${{github.run_number}}
