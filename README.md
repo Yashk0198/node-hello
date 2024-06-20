@@ -39,3 +39,12 @@
     
 7) Create cluster using eksctl as  - 
     eksctl create cluster  --name mycluster --version 1.26 --nodegroup-name mygroup --node-type t2.micro --nodes 2 --region us-east-1 # --region us-east-1 --zones=us-east-1a,us-east-1b,us-east-1d
+
+
+   Install Helm on ubuntu server
+   -------------------------------
+curl https://baltocdn.com/helm/signing.asc | gpg --dearmor | sudo tee /usr/share/keyrings/helm.gpg > /dev/null
+sudo apt-get install apt-transport-https --yes
+echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/helm.gpg] https://baltocdn.com/helm/stable/debian/ all main" | sudo tee /etc/apt/sources.list.d/helm-stable-debian.list
+sudo apt-get update
+sudo apt-get install helm
