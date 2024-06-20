@@ -17,7 +17,7 @@ spec:
       serviceAccountName: sa
       containers:
       - name: hello-node
-        image: ykum01/helloworld:47
+        image: ykum01/helloworld:48
         ports:
         - containerPort: 3000
         imagePullPolicy: Always
