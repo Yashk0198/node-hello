@@ -1,5 +1,5 @@
 # node-hello
-# Create dockerfile
+1. Create dockerfile
 
 # To setup the Cluster using EKSCTL, follow the following steps - 
 
